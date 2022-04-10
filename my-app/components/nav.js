@@ -97,7 +97,7 @@ export default function Navbar() {
         {/* <div class="bg-indigo-300"> */}
         <img
           src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
-          class="object-cover h-full w-full "
+          className="object-cover h-full w-full "
           alt=""
           style={{ position: "absolute" }}
         />
