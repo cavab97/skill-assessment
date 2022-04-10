@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 html,
 body {
   padding: 0;
@@ -13,4 +16,52 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.hexagon {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  background: black;
+}
+.hexagon:before,
+.double:after {
+  position: relative;
+  content: "";
+}
+.hexagon:before {
+  top: 4px; /* border width */
+  left: 4px; /* border width */
+  height: calc(100% - 8px); /* 100% - (2 * border width) */
+  width: calc(100% - 8px); /* 100% - (2 * border width) */
+  background: #6c6;
+}
+.hexagon,
+.hexagon:before,
+.double:after {
+  -webkit-clip-path: polygon(
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0% 75%,
+    0% 25%
+  );
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+.image:before {
+  background: url(http://lorempixel.com/150/150/nature/1);
+}
+.double:after {
+  top: 8px;
+  left: 8px;
+  height: calc(100% - 16px);
+  width: calc(100% - 16px);
+  background: black;
+}
+
+/* Just for demo */
+
+.hexagon {
+  display: inline-block;
+  margin: 20px;
 }
