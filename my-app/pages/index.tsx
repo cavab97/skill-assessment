@@ -53,6 +53,7 @@ const Home: NextPage = () => {
     /*Collecting node-element and performing click*/
     buttonRef.current.click();
   }
+  // reusable component for loop selectable button
   const buttonStyleUpdate = (tempData: any, index: number, setTempData: Dispatch<SetStateAction<any>>) => {
     let temp: any = tempData;
     temp.map((i: any, ind: number) => {
