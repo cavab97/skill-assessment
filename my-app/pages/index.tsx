@@ -287,7 +287,7 @@ const Home: NextPage = () => {
               </TwcssText>
               <TwcssDiv className="flex flex-row">
                 <label className="standardText pt-4">S$</label>
-                <input className="textInput mt-4" placeholder="400" >
+                <input className="textInput mt-4" placeholder=" 400" >
                 </input>
               </TwcssDiv>
             </TwcssDiv>
