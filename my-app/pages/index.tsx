@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import React, { useEffect, useState, Dispatch, SetStateAction } from 'react';
 import TwcssDiv from '../components/div/tailwindcss'
 import TwcssInput from '../components/input/tailwindcss'
 import TwcssText from '../components/text/tailwindcss'
@@ -8,26 +9,30 @@ import ActiveButton from '../components/styleCondition/galleryButton'
 import ActiveButtonCategory from '../components/styleCondition/galleryCategoryButton'
 import ConditionActiveButton from '../components/styleCondition/conditionButton'
 import { textFont, textBrandFont } from '../components/text/tailwindcss/secondColFontStyle'
-
-import React, { useEffect, useState, Dispatch, SetStateAction } from 'react';
-
+//all text
+import * as All from '../public/property/font'
 
 
 import Link from "next/link"
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import { galleryDataState, categoryDataState } from "../models/galleryState";
+import { galleryDataState, categoryDataState } from "../module/galleryState";
+import { ALL } from 'dns';
 const Home: NextPage = () => {
   // const galleryButtons:[] = [{ name: "Image Gallery", active: false }, { name: "Preview", active: false }];
 
+  //gallery data
   const [galleryButton, setGalleryButton] = useState<any>([{ name: "Image Gallery", active: true }, { name: "Preview", active: false }]);
   const [gallery, setGallery] = useState<any>(null);
-
+  //category data
   const [categoryButton, setCategoryButton] = useState<any>([{ name: "Collectibles", active: true }, { name: "Accessories", active: false }, { name: "T-Shirts", active: false }]);
-
+  //condition data
   const [conditionButton, setConditionButton] = useState<any>([{ name: "Bad", active: true }, { name: "Fair", active: false }, { name: "Good", active: false }, { name: "New", active: false }]);
   const [prevIndex, setPrevIndex] = useState<number>(-1)
+  const [descriptionStringLength, setDescriptionStringLength] = useState<any>("")
+
+  //image file ref
   const buttonRef: any = React.useRef();
 
 
@@ -63,7 +68,7 @@ const Home: NextPage = () => {
 
 
   return (
-    <div className="grid grid-cols-8 gap-3 body md:h-screen fixed " >
+    <div className="grid desktopXL:grid-cols-8 desktop:grid-cols-8 laptop:grid-cols-8 mobile:grid-row-8 gap-3 body md:h-screen desktopXL:fixed	 desktop:fixed laptop:fixed mobile:relative " >
       {/* col for product's image gallery & preview */}
       <TwcssDiv className=" col-span-4 border-r-1 border-x-zinc-600 flex justify-center ">
         {/* div for product's image gallery & preview */}
@@ -86,8 +91,6 @@ const Home: NextPage = () => {
                   temp[index].active = true;
                   temp[prevIndex].active = false;
                 }
-
-
                 setPrevIndex(index)
                 setGalleryButton(temp)
               }} className={ActiveButton(i.active)}>
@@ -96,43 +99,44 @@ const Home: NextPage = () => {
             })}
           </TwcssDiv>
           {/* div for add image */}
-          <TwcssDiv className="bg-white p-1 w-full addImgContainer border-2	border-black h-2/4 flex justify-center items-center	">
-            {gallery != null ? <img src={gallery} className="w-2/12 " />
-              : <TwcssDiv className="align-middle flex justify-center flex-col items-center ">
-                <img src="/image.svg " className="w-2/12 " />
-                <TwcssText className="text-sm	">
-                  Add Image
-                </TwcssText>
-              </TwcssDiv>}
-
+          <TwcssDiv className="flex desktop:h-2/4 desktopXL:h-2/4 laptop:h-2/4 mobile:h-3/4 justify-center">
+            <TwcssDiv className="bg-white p-1 w-full addImgContainer border-2	border-black h-4/4 flex justify-center items-center mobile:w-2/4	desktopXL:w-4/4	 desktop:w-4/4 laptop:w-4/4">
+              {gallery != null ? <img src={gallery} className="w-2/12 " />
+                : <TwcssDiv className="align-middle flex justify-center flex-col items-center ">
+                  <img src="/image.svg " className="w-2/12 " />
+                  <TwcssText className="text-sm	">
+                    {All.ADD_IMAGE}
+                  </TwcssText>
+                </TwcssDiv>}
+            </TwcssDiv>
           </TwcssDiv>
-          <TwcssDiv className="mt-12">
+
+          <TwcssDiv className="desktopXL:mt-12 desktop:mt-12 laptop:mt-12 mobile:mt-4 desktopXL:w-4/4 desktop:w-4/4 laptop:w-4/4 mobile:h-28">
             <TwcssText className="text-xs ">
-              You May Upload up to 5 images (including thumbnail)
+              You may upload up to 5 images <span className=" desktopXL:contents desktop:contents laptop:contents mobile:hidden">(including thumbnail)</span>
               <br />           Supported file types:jepg,jpg,png
             </TwcssText>
           </TwcssDiv>
-
         </TwcssDiv>
-
       </TwcssDiv>
+
       {/* col for product's details */}
-      <TwcssDiv className="bg-white col-span-4 scrollable mt-9 borderRight">
+      <TwcssDiv className="bg-white col-span-4  mt-9 desktopXL:border-l-4	 desktop:border-l-4 laptop:border-l-4 mobile:borderRightHidden  desktopXL:overflow-auto	desktop:overflow-auto laptop:overflow-auto mobile:unscrollable desktopXL:h-3/6	desktop:h-3/6	 laptop:h-3/6	 mobile:h-full">
         {/* div for product's input */}
         <TwcssDiv className="m flex justify-center items-center flex-col m-6	">
           {/* S product Name */}
           <TwcssDiv className="p-1 flex flex-col w-5/6">
             <TwcssText className={textFont} >
-              Product Name <text className="importantMark">*</text>
+              {All.PRODUCT_NAME} <text className="importantMark">*</text>
             </TwcssText>
             <TwcssInput className="textInput mt-4	" placeholder="Name your listing. Keep it short and sweet" />
           </TwcssDiv>
           {/* Category and thumbnail*/}
           <TwcssDiv className="p-1 flex flex-row w-5/6 mt-8	">
             {/* S Category */}
-            <TwcssDiv className=" flex flex-col w-4/6 ">
+            <TwcssDiv className=" flex flex-col  desktopXL:w-4/6	 desktop:w-4/6	 laptop:w-4/6	 mobile:w-full  ">
               <TwcssText className={textFont} >
-                Category <text className="importantMark">*</text>
+                {All.CATEGORY} <text className="importantMark">*</text>
               </TwcssText>
               <TwcssDiv className=" flex flex-row  justify-between bg-white mt-4" >
                 {categoryButton.map((i: categoryDataState, index: number) => {
@@ -148,19 +152,19 @@ const Home: NextPage = () => {
                 })}
               </TwcssDiv>
             </TwcssDiv>
-            {/* S Thumbnail  */}
-            <TwcssDiv className="pl-8 flex flex-col w-3/6 ">
+            {/* S Thumbnail for web  */}
+            <TwcssDiv className="pl-8 flex flex-col w-3/6 desktopXL:block	 desktop:block	 laptop:block	 mobile:hidden ">
               <TwcssText className={textFont} >
-                Thumbnail Image <text className="importantMark">*</text>
+                {All.THUMBNAIL_IMAGE} <text className="importantMark">*</text>
               </TwcssText>
               <input type="file" ref={buttonRef} className="textAddHideInput" onChange={onFileChangeCapture}>
 
               </input>
-              <button className="textAddImageBtn mt-4"
+              <button style={{ backgroundColor: "black", display: 'flex', justifyContent: "center", alignItems: "center", width: "80%", marginTop: 16 }}
                 onClick={onBtnClick}>
-                <TwcssText className="textFontAddImageBtn">
-                  Add Image
-                </TwcssText>
+                <img src="/imageWhite.svg " className="w-2/12 p-1" />
+                <TwcssText className="p-1 standardWhiteText">
+                  {All.ADD_IMAGE}</TwcssText>
               </button>
 
             </TwcssDiv>
@@ -169,60 +173,86 @@ const Home: NextPage = () => {
           {/*S Brand (up to 2) */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
             <TwcssText className={textFont} >
-              Brand (up to 2) <text className="importantMark">*</text>
+              {All.BRAND_UP} <text className="importantMark">*</text>
             </TwcssText>
 
             <div className="input-field">
-              <input id="input-text-field" className="textInputBrand mt-4" type="text" placeholder=" "></input>
+              <input id="input-text-field" className="textInputBrand mt-4 w-full" type="text" placeholder=" "></input>
               <label for="input-text-field">
-                <span className="first-letter standardText">Add a keyword and press</span>
-                <span className="second-letter standardText"> Enter</span>
+                <span className="first-letter standardText">{All.BRAND_UP_PLACEHOLDER_1}</span>
+                <span className="second-letter standardText"> {All.BRAND_UP_PLACEHOLDER_2}</span>
 
               </label>
             </div>
-            <TwcssDiv className="p-1 flex flex-row brandEgDiv ">
+            <TwcssDiv className="p-1 flex flex-row desktop:w-2/5 desktopXL:w-2/5 laptop:w-2/5 mobile:w-4/5">
               <TwcssText className="textBrandEg" >
                 Eg.
               </TwcssText>
-              <TwcssDiv className="justify-between flex flex row ml-2 brandEgPlaceholderBoxDiv">
+              <TwcssDiv className="justify-between flex flex-row ml-2 brandEgPlaceholderBoxDiv">
                 <TwcssDiv className="bg-gray-50	border-gray-500 border flex flex row justify-center items-center">
                   <TwcssText className="textBrandOption" >
                     Popmart
                   </TwcssText>
                   <img src="/errorMark.svg " className="w-3 ml-2" />
-
                 </TwcssDiv>
-
-                <TwcssDiv className="bg-gray-50	border-gray-500 border flex flex row justify-center items-center">
+                <TwcssDiv className="bg-gray-50	border-gray-500 border flex flex-row justify-center items-center">
                   <TwcssText className="textBrandOption" >
                     Kaws
                   </TwcssText>
                   <img src="/errorMark.svg " className="w-3 ml-2" />
-
                 </TwcssDiv>
               </TwcssDiv>
             </TwcssDiv>
-
           </TwcssDiv>
+
+          {/* S Thumbnail and Available Qty for mobile  */}
+          <TwcssDiv className="p-1 flex flex-row w-5/6 mt-8 desktopXL:hidden	 desktop:hidden	 laptop:hidden	 mobile:flex">
+            {/* S Thumbnail  for mobile */}
+            <TwcssDiv className="flex flex-col w-3/6">
+              <TwcssText className={textFont} >
+                {All.THUMBNAIL_IMAGE} <text className="importantMark">*</text>
+              </TwcssText>
+              <input type="file" ref={buttonRef} className="textAddHideInput" onChange={onFileChangeCapture}>
+              </input>
+              <button style={{ backgroundColor: "black", display: 'flex', justifyContent: "center", alignItems: "center", width: "90%", marginTop: 16, padding: 2 }}
+                onClick={onBtnClick}>
+                <img src="/imageWhite.svg" className="w-2/12 p-1 " />
+                <TwcssText className="standardWhiteFontMobile">
+                  {All.ADD_IMAGE}
+                </TwcssText>
+              </button>
+            </TwcssDiv>
+
+            {/*S Available Qty for mobile */}
+            <TwcssDiv className="pl-1 flex flex-col w-3/6 ">
+              <TwcssText className={textFont} >
+                {All.AVAILABLE_QTY}  <text className="importantMark">*</text></TwcssText>
+              <TwcssInput className="textInput mt-4" placeholder="Enter available quantity" />
+            </TwcssDiv>
+          </TwcssDiv>
+
           {/*S Description */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
             <TwcssText className={textFont} >
-              Description<text className="importantMark">*</text>
+              {All.DESCRIPTION} <text className="importantMark">*</text>
             </TwcssText>
-            <TwcssInput className="textInput mt-4" placeholder="Add more information about the product" />
+            <input className="textInput mt-4" placeholder={All.DESCRIPTION_PLACEHOLDER} onChange={(e: any) => setDescriptionStringLength(e.target.value)} value={descriptionStringLength} />
+            <label className={"standardGreyText flex justify-end"}>{descriptionStringLength.length + "/200"}</label>
           </TwcssDiv>
-          {/*S Available Qty*/}
-          <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
+
+          {/*S Available Qty for web*/}
+          <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8 desktopXL:block	 desktop:block	 laptop:block	 mobile:hidden">
             <TwcssText className={textFont} >
-              Available Qty  <text className="importantMark">*</text></TwcssText>
-            <TwcssInput className="textInput mt-4" placeholder="Enter available quantity" />
+              {All.AVAILABLE_QTY}  <text className="importantMark">*</text></TwcssText>
+            <TwcssInput className="textInput mt-4" placeholder={All.AVAILABLE_QTY_PLACEHOLDER} />
           </TwcssDiv>
+
           {/*S Condition */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
             <TwcssText className={textFont} >
-              Condition <text className="importantMark">*</text>
+              {All.CONDITION} <text className="importantMark">*</text>
             </TwcssText>
-            <TwcssDiv className="flex flex-row w-5/6 justify-between bg-white mt-4">
+            <TwcssDiv className="flex flex-row desktop:w-5/6 laptop:w-5/6 desktopXL:w-5/6 mobile:w-6/6 justify-between bg-white mt-4">
               {conditionButton.map((i: categoryDataState, index: any) => {
                 return <TwcssButton
                   onClick={() => buttonStyleUpdate(conditionButton, index, setConditionButton)}
@@ -233,18 +263,18 @@ const Home: NextPage = () => {
                 </TwcssButton>
               })}
             </TwcssDiv>
-
           </TwcssDiv>
+
           {/*  Season and Retail */}
           <TwcssDiv className="p-1 flex flex-row w-5/6	bg-white	mt-8">
             {/*  */}
             <TwcssDiv className=" flex flex-col w-5/6 ">
               <TwcssText className={textFont} >
-                Season <text className="importantMark">*</text>
+                {All.SEASON} <text className="importantMark">*</text>
               </TwcssText>
               <TwcssDiv className="p-1 flex flex-row w-3/6 justify-between bg-white">
 
-                <input className="textInput mt-4">
+                <input className="textInput mt-4" placeholder="SS20">
 
                 </input>
               </TwcssDiv>
@@ -253,36 +283,36 @@ const Home: NextPage = () => {
             {/*S Retail  */}
             <TwcssDiv className=" flex flex-col w-3/6 ">
               <TwcssText className={textFont} >
-                Retail <text className="importantMark">*</text>
+                {All.RETAIL} <text className="importantMark">*</text>
               </TwcssText>
-              <input className="textInput mt-4">
-
-              </input>
-
+              <TwcssDiv className="flex flex-row">
+                <label className="standardText pt-4">S$</label>
+                <input className="textInput mt-4" placeholder="400" >
+                </input>
+              </TwcssDiv>
             </TwcssDiv>
           </TwcssDiv>
           {/*S Authenticity */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
             <TwcssText className={textFont} >
-              Authenticity
+              {All.AUTHENTICITY}
             </TwcssText>
             <TwcssText className="standardText mt-4">100%</TwcssText>
           </TwcssDiv>
           {/*S Declaration */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8 ">
             <TwcssText className={textFont} >
-              Declaration <text className="importantMark">*</text>
+              {All.DECLARATION} <text className="importantMark">*</text>
             </TwcssText>
             <TwcssDiv className="standardText mt-4">
               <input type="checkbox" className="standardText"></input>
-              <TwcssText className="standardText pl-1"> I hereby declare that my item is 100% authentic and in the original packaging. In the event that any information given in this application proves to be false or incorrect, I shall be responsible for the consequences.</TwcssText>
+              <TwcssText className="standardText pl-1"> {All.DECLARATION_WORD}</TwcssText>
             </TwcssDiv>
           </TwcssDiv>
 
           {/*S inicates required */}
-          <TwcssDiv className="p-1 flex flex-col w-5/6">
-
-            <TwcssDiv className="standardText mt-2">
+          <TwcssDiv className="p-1 flex flex-col w-5/6 ">
+            <TwcssDiv className="standardText flex mt-2 desktop:justify-start desktopXL:justify-start laptop:justify-start mobile:justify-end">
               <text className="importantMark">*</text><TwcssText className="standardText"> inicates required</TwcssText>
             </TwcssDiv>
           </TwcssDiv>
@@ -290,13 +320,13 @@ const Home: NextPage = () => {
           {/*S Cancel and Publish button */}
           <TwcssDiv className="p-1 flex flex-col w-5/6">
 
-            <TwcssDiv className='flex justify-end flex-row  '>
-              <button className='p-1 cancelBtn mr-2 w-1/6'>
+            <TwcssDiv className='flex desktop:justify-end desktopXL:justify-end laptop:justify-end mobile:justify-center flex-row  '>
+              <button className='p-1 cancelBtn mr-2 desktopXL:w-1/6 desktop:w-1/6 laptop:w-1/6 mobile:w-2/6'>
                 <TwcssText className="standardText">
                   Cancel
                 </TwcssText>
               </button>
-              <button className='p-1 cancelBtn mr-2 w-1/6 publishBtn'>
+              <button className='p-1 cancelBtn mr-2  desktopXL:w-1/6 desktop:w-1/6 laptop:w-1/6 mobile:w-2/6 publishBtn desktopXL:bg-slate-500 desktop:bg-slate-500 laptop:bg-slate-500 mobile:bg-black'>
                 <TwcssText className="standardWhiteText">
                   Publish
                 </TwcssText>

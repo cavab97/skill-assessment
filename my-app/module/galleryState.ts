@@ -3,6 +3,7 @@ export interface galleryDataState {
     active:boolean;
   }
   export interface categoryDataState {
+    map: any;
     name:string;
     active:boolean;
   }

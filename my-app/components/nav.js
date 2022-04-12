@@ -62,7 +62,7 @@ export default function Navbar() {
       </div>
       <div className="w-9/12 flex justify-start items-center text-white">
         <div
-          className="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden"
+          className="z-50 flex relative w-8 h-8 flex-col justify-between items-center desktop:hidden"
           onClick={() => {
             setOpen(!open);
           }}
@@ -85,7 +85,7 @@ export default function Navbar() {
           />
         </div>
 
-        <div className="hidden md:flex ">
+        <div className="hidden desktop:flex ">
           <NavLink to="/contact">EVENTS</NavLink>
           <NavLink to="/about">FEATURES</NavLink>
           <NavLink to="/about">COMMUNITY</NavLink>

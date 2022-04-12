@@ -83,7 +83,6 @@ a {
 }
 .textInputBrand {
   border-bottom: 1px solid black;
-  width: 50%;
   padding-bottom: 3px;
   font-size: small;
 }
@@ -184,9 +183,6 @@ a {
   font-size: smaller;
 }
 .textAddImageBtn {
-  background-color: black;
-  padding: 2px;
-  width: 65%;
   cursor: pointer;
 }
 .textFontAddImageBtn {
@@ -195,6 +191,8 @@ a {
   text-align: center;
   font-size: small;
   font-family: "Helvetica Neue";
+  padding: 3px;
+  width: 21%;
 }
 .textAddHideInput {
   display: none;
@@ -203,14 +201,24 @@ a {
   font-size: small;
   font-family: "Helvetica Neue";
 }
+.standardGreyText {
+  font-size: small;
+  font-family: "Helvetica Neue";
+  color: #9ea5b1;
+}
 .standardWhiteText {
   font-size: small;
   font-family: "Helvetica Neue";
   color: white;
 }
-.scrollable {
-  overflow: auto;
-  height: 65%;
+.standardWhiteFontMobile {
+  color: white;
+  font-family: "Helvetica Neue";
+  padding-left: 10px;
+  font-size: small;
+}
+.unscrollable {
+  overflow: unset;
 }
 .cancelBtn {
   border: 1px solid black;
@@ -242,4 +250,7 @@ a {
 }
 .borderRight {
   border-left: 1px solid;
+}
+.borderRightHidden {
+  border-left: 0px solid;
 }
