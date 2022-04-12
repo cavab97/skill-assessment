@@ -96,7 +96,7 @@ export default function Navbar() {
         {/* <NavLink to="/about">picture</NavLink> */}
         {/* <div class="bg-indigo-300"> */}
         <img
-          src="https://mdbootstrap.com/img/new/standard/city/044.jpg"
+          src="/assests/Profile Pic@2x.png"
           className="object-cover h-full w-full "
           alt=""
           style={{ position: "absolute" }}

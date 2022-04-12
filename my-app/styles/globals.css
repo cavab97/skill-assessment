@@ -69,10 +69,11 @@ a {
   margin-top: 35px;
 }
 .activeButton {
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 .deActiveButton {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #898989;
+  color: #898989;
 }
 .textInputProduct {
   border-bottom: 1px solid black;
@@ -86,6 +87,55 @@ a {
   padding-bottom: 3px;
   font-size: small;
 }
+/* .textInputBrand::-webkit-input-placeholder {
+  background: -webkit-linear-gradient(
+    left,
+    #aaa 0%,
+    #aaa 46%,
+    red 10%,
+    red 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+/* .textInputBrand::placeholder::after {
+  content: attr(data-end);
+  color: red;
+} */
+.textInputBrand::-webkit-input-placeholder::after {
+  content: "Line 1\A Line 2\A Line 3\A";
+  color: red;
+}
+.input-field {
+  position: relative;
+  display: inline-block;
+}
+
+.input-field > label {
+  position: absolute;
+  left: 0.5em;
+  top: 50%;
+  margin-top: -0.5em;
+  opacity: 0.5;
+  display: none;
+}
+
+.input-field > input[type="text"]:placeholder-shown + label {
+  display: block;
+}
+
+.input-field > label > span {
+  letter-spacing: normal;
+}
+
+.first-letter {
+  color: #9ea5b1;
+}
+
+.second-letter {
+  color: black;
+}
+
 .textInput {
   border-bottom: 1px solid black;
   width: 100%;
@@ -95,15 +145,25 @@ a {
 .textBrandEg {
   font-size: 12px;
   color: grey;
+  align-self: center;
+}
+.textBrandOption {
+  font-size: 12px;
+  color: grey;
   padding: 3px;
 }
 .brandEgDiv {
-  width: 35%;
+  width: 40%;
+  background-color: white;
+}
+.brandEgPlaceholderBoxDiv {
+  width: 75%;
   background-color: white;
 }
 .DeactiveCategoryBtn {
   border: 1px solid black;
   padding: 3px;
+  width: 30%;
 }
 .DeactiveCategoryFont {
   color: black;
@@ -113,6 +173,7 @@ a {
   border: 1px solid black;
   padding: 3px;
   background-color: black;
+  width: 30%;
 }
 .ActiveCategoryFont {
   color: white;
@@ -124,14 +185,61 @@ a {
 }
 .textAddImageBtn {
   background-color: black;
-  padding: 3px;
-  height: auto;
+  padding: 2px;
+  width: 65%;
+  cursor: pointer;
 }
 .textFontAddImageBtn {
   color: white;
   background-color: black;
   text-align: center;
+  font-size: small;
+  font-family: "Helvetica Neue";
 }
 .textAddHideInput {
   display: none;
+}
+.standardText {
+  font-size: small;
+  font-family: "Helvetica Neue";
+}
+.standardWhiteText {
+  font-size: small;
+  font-family: "Helvetica Neue";
+  color: white;
+}
+.scrollable {
+  overflow: auto;
+  height: 65%;
+}
+.cancelBtn {
+  border: 1px solid black;
+}
+.publishBtn {
+  background-color: grey;
+  opacity: 80%;
+  border: none;
+}
+
+.DeactiveConditionBtn {
+  border: 1px solid black;
+  padding: 3px;
+  width: 21%;
+}
+.DeactiveConditionFont {
+  color: black;
+  font-size: 10px;
+}
+.ActiveConditionBtn {
+  border: 1px solid black;
+  padding: 3px;
+  background-color: black;
+  width: 21%;
+}
+.ActiveConditionFont {
+  color: white;
+  font-size: 10px;
+}
+.borderRight {
+  border-left: 1px solid;
 }

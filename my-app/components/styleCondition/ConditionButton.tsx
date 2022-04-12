@@ -1,10 +1,10 @@
 
-export default function ActiveButtonCategory(onFocus: boolean) {
+export default function ConditionActiveButton(onFocus: boolean) {
     try {
         if (onFocus == true) {
-            return ` ActiveCategoryBtn ActiveCategoryFont`
+            return ` ActiveConditionBtn ActiveConditionFont`
         } else {
-            return `DeactiveCategoryFont DeactiveCategoryBtn`
+            return `DeactiveConditionFont DeactiveConditionBtn`
 
         }
     } catch (error) {
