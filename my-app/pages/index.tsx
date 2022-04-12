@@ -8,7 +8,6 @@ import TwcssButton from '../components/button/tailwindcss'
 import ActiveButton from '../components/styleCondition/galleryButton'
 import ActiveButtonCategory from '../components/styleCondition/galleryCategoryButton'
 import ConditionActiveButton from '../components/styleCondition/conditionButton'
-import { textFont, textBrandFont } from '../components/text/tailwindcss/secondColFontStyle'
 //all text
 import * as All from '../public/property/font'
 
@@ -127,7 +126,7 @@ const Home: NextPage = () => {
         <TwcssDiv className="m flex justify-center items-center flex-col m-6	">
           {/* S product Name */}
           <TwcssDiv className="p-1 flex flex-col w-5/6">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.PRODUCT_NAME} <text className="importantMark">*</text>
             </TwcssText>
             <TwcssInput className="textInput mt-4	" placeholder="Name your listing. Keep it short and sweet" />
@@ -136,7 +135,7 @@ const Home: NextPage = () => {
           <TwcssDiv className="p-1 flex flex-row w-5/6 mt-8	">
             {/* S Category */}
             <TwcssDiv className=" flex flex-col  desktopXL:w-4/6	 desktop:w-4/6	 laptop:w-4/6	 mobile:w-full  ">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.CATEGORY} <text className="importantMark">*</text>
               </TwcssText>
               <TwcssDiv className=" flex flex-row  justify-between bg-white mt-4" >
@@ -155,7 +154,7 @@ const Home: NextPage = () => {
             </TwcssDiv>
             {/* S Thumbnail for web  */}
             <TwcssDiv className="pl-8 flex flex-col w-3/6 desktopXL:block	 desktop:block	 laptop:block	 mobile:hidden ">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.THUMBNAIL_IMAGE} <text className="importantMark">*</text>
               </TwcssText>
               <input type="file" ref={buttonRef} className="textAddHideInput" onChange={onFileChangeCapture}>
@@ -173,7 +172,7 @@ const Home: NextPage = () => {
 
           {/*S Brand (up to 2) */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.BRAND_UP} <text className="importantMark">*</text>
             </TwcssText>
 
@@ -210,12 +209,12 @@ const Home: NextPage = () => {
           <TwcssDiv className="p-1 flex flex-row w-5/6 mt-8 desktopXL:hidden	 desktop:hidden	 laptop:hidden	 mobile:flex">
             {/* S Thumbnail  for mobile */}
             <TwcssDiv className="flex flex-col w-3/6">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.THUMBNAIL_IMAGE} <text className="importantMark">*</text>
               </TwcssText>
               <input type="file" ref={buttonRef} className="textAddHideInput" onChange={onFileChangeCapture}>
               </input>
-              <button style={{ backgroundColor: "black", display: 'flex', justifyContent: "center", alignItems: "center", width: "90%", marginTop: 16, padding: 2 }}
+              <button style={{ backgroundColor: "black", display: 'flex', justifyContent: "center", alignItems: "center", width: "90%", marginTop: 5, padding: 2 }}
                 onClick={onBtnClick}>
                 <img src="/imageWhite.svg" className="w-2/12 p-1 " />
                 <TwcssText className="standardWhiteFontMobile">
@@ -226,7 +225,7 @@ const Home: NextPage = () => {
 
             {/*S Available Qty for mobile */}
             <TwcssDiv className="pl-1 flex flex-col w-3/6 ">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.AVAILABLE_QTY}  <text className="importantMark">*</text></TwcssText>
               <TwcssInput className="textInput mt-4" placeholder="Enter available quantity" />
             </TwcssDiv>
@@ -234,7 +233,7 @@ const Home: NextPage = () => {
 
           {/*S Description */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.DESCRIPTION} <text className="importantMark">*</text>
             </TwcssText>
             <input className="textInput mt-4" placeholder={All.DESCRIPTION_PLACEHOLDER} onChange={(e: any) => setDescriptionStringLength(e.target.value)} value={descriptionStringLength} />
@@ -243,14 +242,14 @@ const Home: NextPage = () => {
 
           {/*S Available Qty for web*/}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8 desktopXL:block	 desktop:block	 laptop:block	 mobile:hidden">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.AVAILABLE_QTY}  <text className="importantMark">*</text></TwcssText>
             <TwcssInput className="textInput mt-4" placeholder={All.AVAILABLE_QTY_PLACEHOLDER} />
           </TwcssDiv>
 
           {/*S Condition */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.CONDITION} <text className="importantMark">*</text>
             </TwcssText>
             <TwcssDiv className="flex flex-row desktop:w-5/6 laptop:w-5/6 desktopXL:w-5/6 mobile:w-6/6 justify-between bg-white mt-4">
@@ -270,7 +269,7 @@ const Home: NextPage = () => {
           <TwcssDiv className="p-1 flex flex-row w-5/6	bg-white	mt-8">
             {/*  */}
             <TwcssDiv className=" flex flex-col w-5/6 ">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.SEASON} <text className="importantMark">*</text>
               </TwcssText>
               <TwcssDiv className="p-1 flex flex-row w-3/6 justify-between bg-white">
@@ -283,7 +282,7 @@ const Home: NextPage = () => {
             </TwcssDiv>
             {/*S Retail  */}
             <TwcssDiv className=" flex flex-col w-3/6 ">
-              <TwcssText className={textFont} >
+              <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
                 {All.RETAIL} <text className="importantMark">*</text>
               </TwcssText>
               <TwcssDiv className="flex flex-row">
@@ -295,14 +294,14 @@ const Home: NextPage = () => {
           </TwcssDiv>
           {/*S Authenticity */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.AUTHENTICITY}
             </TwcssText>
             <TwcssText className="standardText mt-4">100%</TwcssText>
           </TwcssDiv>
           {/*S Declaration */}
           <TwcssDiv className="p-1 flex flex-col w-5/6 mt-8 ">
-            <TwcssText className={textFont} >
+            <TwcssText className={"font-bold mobile:text-xs	desktop:text-sm laptop:text-sm desktop:text-sm"} >
               {All.DECLARATION} <text className="importantMark">*</text>
             </TwcssText>
             <TwcssDiv className="standardText mt-4">
