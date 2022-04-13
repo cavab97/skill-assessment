@@ -181,7 +181,6 @@ const Home: NextPage = () => {
               <label for="input-text-field">
                 <span className="first-letter standardText">{All.BRAND_UP_PLACEHOLDER_1}</span>
                 <span className="second-letter standardText"> {All.BRAND_UP_PLACEHOLDER_2}</span>
-
               </label>
             </div>
             <TwcssDiv className="p-1 flex flex-row desktop:w-2/5 desktopXL:w-2/5 laptop:w-2/5 mobile:w-4/5">

@@ -53,14 +53,14 @@ function MobileNav({ open, setOpen }) {
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="flex filter drop-shadow-md bg-black px-4 py-4 h-20 items-center">
+    <nav className="flex filter drop-shadow-md bg-black px-4 py-4 h-20 items-center mobile:justify-center">
       <MobileNav open={open} setOpen={setOpen} />
       <div className="w-1/5	 flex items-center">
         <a className="text-2xl font-semibold text-white" href="/">
           LOGO
         </a>
       </div>
-      <div className="w-9/12 flex justify-start items-center text-white">
+      <div className="w-9/12 justify-start items-center text-white desktop:flex mobile:hidden">
         <div
           className="z-50 flex relative w-8 h-8 flex-col justify-between items-center desktop:hidden"
           onClick={() => {
@@ -92,7 +92,7 @@ export default function Navbar() {
           <NavLink to="/about">CATALOGUE</NavLink>
         </div>
       </div>
-      <div className="w-1/5	 flex justify-end items-center hexagon double">
+      <div className="w-1/5	 desktop:block mobile:hidden justify-end items-center hexagon double">
         {/* <NavLink to="/about">picture</NavLink> */}
         {/* <div class="bg-indigo-300"> */}
         <img
