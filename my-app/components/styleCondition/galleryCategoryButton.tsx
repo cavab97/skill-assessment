@@ -2,9 +2,9 @@
 export default function ActiveButtonCategory(onFocus: boolean) {
     try {
         if (onFocus == true) {
-            return ` ActiveCategoryBtn ActiveCategoryFont`
+            return `mobile:p-2 desktop:p-1 desktopXL:p-1 laptop:p-1 ActiveCategoryBtn ActiveCategoryFont `
         } else {
-            return `DeactiveCategoryFont DeactiveCategoryBtn`
+            return `mobile:p-2 desktop:p-1 desktopXL:p-1 laptop:p-1 DeactiveCategoryFont DeactiveCategoryBtn`
 
         }
     } catch (error) {

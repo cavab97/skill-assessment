@@ -2,9 +2,9 @@
 export default function ConditionActiveButton(onFocus: boolean) {
     try {
         if (onFocus == true) {
-            return ` ActiveConditionBtn ActiveConditionFont`
+            return `p-2 ActiveConditionBtn ActiveConditionFont`
         } else {
-            return `DeactiveConditionFont DeactiveConditionBtn`
+            return `p-2 DeactiveConditionFont DeactiveConditionBtn`
 
         }
     } catch (error) {

@@ -69,11 +69,15 @@ a {
   margin-top: 35px;
 }
 .activeButton {
+  outline: none;
   border-bottom: 2px solid black;
+  margin-top: 5px;
 }
 .deActiveButton {
   border-bottom: 1px solid #898989;
   color: #898989;
+  outline: none;
+  margin-top: 5px;
 }
 .textInputProduct {
   border-bottom: 1px solid black;
@@ -127,12 +131,10 @@ a {
   letter-spacing: normal;
 }
 
-.first-letter {
-  color: #9ea5b1;
-}
-
 .second-letter {
   color: black;
+  opacity: 1;
+  font-weight: bold;
 }
 
 .textInput {
@@ -141,27 +143,27 @@ a {
   padding-bottom: 3px;
   font-size: small;
 }
+.textCurrency {
+  border-bottom: 1px solid black;
+  padding-bottom: 3px;
+  font-size: small;
+}
 .textBrandEg {
   font-size: 12px;
   color: grey;
   align-self: center;
 }
-.textBrandOption {
-  font-size: 12px;
-  color: grey;
-  padding: 3px;
-}
+
 .brandEgDiv {
   width: 40%;
   background-color: white;
 }
 .brandEgPlaceholderBoxDiv {
-  width: 75%;
-  background-color: white;
+  width: 55%;
+  background-color: red;
 }
 .DeactiveCategoryBtn {
   border: 1px solid black;
-  padding: 3px;
   width: 30%;
 }
 .DeactiveCategoryFont {
@@ -170,7 +172,6 @@ a {
 }
 .ActiveCategoryBtn {
   border: 1px solid black;
-  padding: 3px;
   background-color: black;
   width: 30%;
 }
@@ -200,6 +201,11 @@ a {
 .standardText {
   font-size: small;
   font-family: "Helvetica Neue";
+}
+.standardTextPlaceholder {
+  font-family: "Helvetica Neue";
+  font-size: small;
+  color: "rgb(156 163 175)";
 }
 .standardGreyText {
   font-size: small;
@@ -231,7 +237,6 @@ a {
 
 .DeactiveConditionBtn {
   border: 1px solid black;
-  padding: 3px;
   width: 21%;
 }
 .DeactiveConditionFont {
@@ -240,7 +245,6 @@ a {
 }
 .ActiveConditionBtn {
   border: 1px solid black;
-  padding: 3px;
   background-color: black;
   width: 21%;
 }
@@ -253,4 +257,10 @@ a {
 }
 .borderRightHidden {
   border-left: 0px solid;
+}
+.currencyinput {
+  border: 1px inset #ccc;
+}
+.currencyinput input {
+  border: 0;
 }
