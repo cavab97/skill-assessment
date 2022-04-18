@@ -85,7 +85,7 @@ const Home: NextPage = () => {
               {galleryButton.map((i: galleryDataState, index: any) => {
                 return <TwcssButton
                   onClick={() => buttonStyleUpdate(galleryButton, index, setGalleryButton)}
-                  className={ActiveButton(i.active)}>
+                  className={ActiveButton(i.active)} key={i.name}>
                   {i.name}
                 </TwcssButton>
               })}
@@ -135,7 +135,7 @@ const Home: NextPage = () => {
                 {categoryButton.map((i: categoryDataState, index: number) => {
                   return <TwcssButton
                     onClick={() => buttonStyleUpdate(categoryButton, index, setCategoryButton)}
-                    className={ActiveButtonCategory(i.active)}>
+                    className={ActiveButtonCategory(i.active)} key={i.name}>
                     <TwcssText className="standardText">
                       {i.name.toString()}
                     </TwcssText>
@@ -247,7 +247,7 @@ const Home: NextPage = () => {
               {conditionButton.map((i: categoryDataState, index: any) => {
                 return <TwcssButton
                   onClick={() => buttonStyleUpdate(conditionButton, index, setConditionButton)}
-                  className={ConditionActiveButton(i.active)}>
+                  className={ConditionActiveButton(i.active)} key={i.name}>
                   <TwcssText className="standardText" >
                     {i.name}
                   </TwcssText>
