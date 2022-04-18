@@ -1,9 +1,12 @@
 import { useState } from "react";
 function TwcssButton({ to, children, className, onClick }) {
   return (
-    <button href={to} className={className} onClick={onClick}>
-      {children}
-    </button>
+    <button
+      href={to}
+      className={className}
+      onClick={onClick}
+      children={children}
+    ></button>
   );
 }
 export default function Container({ className, children, onClick }) {
