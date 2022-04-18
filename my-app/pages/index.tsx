@@ -170,7 +170,7 @@ const Home: NextPage = () => {
 
             <div className="input-field">
               <input id="input-text-field" className="textInputBrand mt-4 w-full " type="text" placeholder=" "></input>
-              <label for="input-text-field">
+              <label htmlFor="input-text-field">
                 <span className="first-letter standardTextPlaceholder">{All.BRAND_UP_PLACEHOLDER_1}</span>
                 <span className="second-letter standardTextPlaceholder"> {All.BRAND_UP_PLACEHOLDER_2}</span>
               </label>
