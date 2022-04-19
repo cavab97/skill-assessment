@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 function NavLink({ to, children }) {
   return (
@@ -95,9 +96,10 @@ export default function Navbar() {
       <div className="w-1/5	 desktop:block mobile:hidden justify-end items-center hexagon double">
         {/* <NavLink to="/about">picture</NavLink> */}
         {/* <div class="bg-indigo-300"> */}
-        <img
+        <Image
           src="/assests/Profile Pic@2x.png"
-          className="object-cover h-full w-full "
+          // className="object-cover h-full w-full "
+          layout="fill"
           alt=""
           style={{ position: "absolute" }}
         />

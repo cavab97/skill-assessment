@@ -6,6 +6,6 @@ function TwcssText({ to, children, className }) {
     </text>
   );
 }
-export default function ({ className, children }) {
+export default function text({ className, children }) {
   return <TwcssText className={className} children={children} />;
 }

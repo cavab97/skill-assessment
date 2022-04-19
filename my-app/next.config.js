@@ -4,7 +4,6 @@ const nextConfig = {
   destination: "/posts/firstPost",
   permanent: true,
   reactStrictMode: true,
-  ignoreBuildErrors: true,
 };
 
 module.exports = nextConfig;
